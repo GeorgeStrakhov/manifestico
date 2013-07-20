@@ -115,8 +115,8 @@ return array(
 
 		'default' => array(
 			'host'     => 'tunnel.pagodabox.com',
-			'port'     => 6379,
-			'database' => 0,
+			'port'     => 6380,
+			'database' => 'manifestico',
 		),
 
 	),
