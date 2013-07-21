@@ -3,7 +3,7 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"fideloper/proxy": "dev-master",
-		"way/generators": "1.0.*@dev",
+		"way/generators": "dev-master",
 		"twitter/bootstrap": "dev-master",
 		"components/jquery": "1.*"
 	},
