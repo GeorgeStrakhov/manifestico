@@ -1,17 +1,17 @@
 <?php
 
-class ManifestosController extends BaseController {
+class TagsController extends BaseController {
 
     /**
-     * Manifesto Repository
+     * Tag Repository
      *
-     * @var Manifesto
+     * @var Tag
      */
-    protected $manifesto;
+    protected $tag;
 
-    public function __construct(Manifesto $manifesto)
+    public function __construct(Tag $tag)
     {
-        $this->manifesto = $manifesto;
+        $this->tag = $tag;
     }
 
     /**
@@ -21,8 +21,9 @@ class ManifestosController extends BaseController {
      */
     public function index()
     {
-        $manifestos = $this->manifesto->all();
-        return View::make('manifestos.index', compact('manifestos'));
+        $tags = $this->tag->all();
+
+        return View::make('tags.index', compact('tags'));
     }
 
     /**
@@ -32,7 +33,7 @@ class ManifestosController extends BaseController {
      */
     public function create()
     {
-        return View::make('manifestos.create');
+        return View::make('tags.create');
     }
 
     /**
@@ -43,16 +44,16 @@ class ManifestosController extends BaseController {
     public function store()
     {
         $input = Input::all();
-        $validation = Validator::make($input, Manifesto::$rules);
+        $validation = Validator::make($input, Tag::$rules);
 
         if ($validation->passes())
         {
-            $this->manifesto->create($input);
+            $this->tag->create($input);
 
-            return Redirect::route('manifestos.index');
+            return Redirect::route('tags.index');
         }
 
-        return Redirect::route('manifestos.create')
+        return Redirect::route('tags.create')
             ->withInput()
             ->withErrors($validation)
             ->with('message', 'There were validation errors.');
@@ -66,9 +67,9 @@ class ManifestosController extends BaseController {
      */
     public function show($id)
     {
-        $manifesto = $this->manifesto->findOrFail($id);
+        $tag = $this->tag->findOrFail($id);
 
-        return View::make('manifestos.show', compact('manifesto'));
+        return View::make('tags.show', compact('tag'));
     }
 
     /**
@@ -79,14 +80,14 @@ class ManifestosController extends BaseController {
      */
     public function edit($id)
     {
-        $manifesto = $this->manifesto->find($id);
+        $tag = $this->tag->find($id);
 
-        if (is_null($manifesto))
+        if (is_null($tag))
         {
-            return Redirect::route('manifestos.index');
+            return Redirect::route('tags.index');
         }
 
-        return View::make('manifestos.edit', compact('manifesto'));
+        return View::make('tags.edit', compact('tag'));
     }
 
     /**
@@ -98,17 +99,17 @@ class ManifestosController extends BaseController {
     public function update($id)
     {
         $input = array_except(Input::all(), '_method');
-        $validation = Validator::make($input, Manifesto::$rules);
+        $validation = Validator::make($input, Tag::$rules);
 
         if ($validation->passes())
         {
-            $manifesto = $this->manifesto->find($id);
-            $manifesto->update($input);
+            $tag = $this->tag->find($id);
+            $tag->update($input);
 
-            return Redirect::route('manifestos.show', $id);
+            return Redirect::route('tags.show', $id);
         }
 
-        return Redirect::route('manifestos.edit', $id)
+        return Redirect::route('tags.edit', $id)
             ->withInput()
             ->withErrors($validation)
             ->with('message', 'There were validation errors.');
@@ -122,9 +123,9 @@ class ManifestosController extends BaseController {
      */
     public function destroy($id)
     {
-        $this->manifesto->find($id)->delete();
+        $this->tag->find($id)->delete();
 
-        return Redirect::route('manifestos.index');
+        return Redirect::route('tags.index');
     }
 
 }

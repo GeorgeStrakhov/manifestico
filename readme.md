@@ -9,6 +9,8 @@ simple project for learning the fundamentals of:
 
 ### manifestos
 * id
+* name
+* slug
 * text
 * signature (optional small text at the bottom)
 * theme
@@ -26,6 +28,7 @@ simple project for learning the fundamentals of:
 ### tags
 * id
 * name
+* slug
 
 ### tag_manifesto (pivot)
 * id
@@ -40,10 +43,11 @@ simple project for learning the fundamentals of:
 * custom front-end with bootstrap, jquery and slabtext for typography
 
 ## Steps
-* laravel + front-end render (no tags)
+* (done) laravel back-end, db (no tags)
+* (done) tags
+* front-end (rendering)
 * sendgrid
 * phantomjs => download as picture
 * phantomjs + S3 bucket
 * social sharing
 * upload custom artwork
-* tags

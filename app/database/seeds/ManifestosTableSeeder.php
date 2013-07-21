@@ -8,11 +8,15 @@ class ManifestosTableSeeder extends Seeder {
 
         $manifestos = array(
         	[
-        		'text'		=> 'I find your lack of faith\ndisturbing',
+        		'name'      => 'lack of faith',
+                'slug'      => 'lack-of-faith',
+                'text'		=> 'I find your lack of faith\ndisturbing',
         		'signature'	=> 'Darth'
         	],
         	[
-        		'text'		=> 'do\nthere is no try',
+        		'name'      => 'do no try',
+                'slug'      => 'do-no-try',
+                'text'		=> 'do\nthere is no try',
         		'signature' => 'Master Yoda'
         	]
         );

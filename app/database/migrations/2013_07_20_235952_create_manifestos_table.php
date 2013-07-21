@@ -14,6 +14,8 @@ class CreateManifestosTable extends Migration {
     {
         Schema::create('manifestos', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('slug');
             $table->text('text');
 			$table->string('signature')->nullable();
 			$table->string('theme');

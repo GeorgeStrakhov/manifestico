@@ -12,6 +12,7 @@
             <tr>
                 <th>Text</th>
 				<th>Signature</th>
+                <th>Tags</th>
 				<th>Theme</th>
 				<th>Custom_css</th>
 				<th>Custom_artwork</th>
@@ -29,6 +30,11 @@
                 <tr>
                     <td>{{{ $manifesto->text }}}</td>
 					<td>{{{ $manifesto->signature }}}</td>
+                    <td>
+                        @foreach($manifesto->tags()->get() as $tag)
+                            {{$tag->name}},&nbsp;
+                        @endforeach
+                    </td>
 					<td>{{{ $manifesto->theme }}}</td>
 					<td>{{{ $manifesto->custom_css }}}</td>
 					<td>{{{ $manifesto->custom_artwork }}}</td>
